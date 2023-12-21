@@ -1,5 +1,5 @@
 # PrimeTile(Web簡易版) 概要
-[ここから]<https://misodango.github.io/PrimeTile/>
+[プレイはここから](https://misodango.github.io/PrimeTile/)
 
 このゲームは，タイルを駆使して数字を作り，素因数分解を楽しむゲームです．
 
@@ -69,3 +69,9 @@ $`7 \times 7=49`$となります．(何も入力していない行は無視さ�
 正解だとalertが表示され，次の問題が自動で生成され，タイルがリセットされます．
 
 <button>割る！</button>
+
+
+# おわり
+ぜひ遊んでみてください
+
+[プレイはここから](https://misodango.github.io/PrimeTile/)
