@@ -23,11 +23,17 @@ Vue.createApp({
 	},
 	computed: {
 		isPrime() {
-			if (this.num < 2) return false;
-			for (let i = 2; i * i <= this.num; i++) {
-				if (this.num % i === 0) return false;
+			for(let i = 0; i < this.boardSize; i++){
+				for(let j = 2; j * j <=this.calculated[i]; j++){
+					if(this.calculated[i]%j===0) return false;
+				}
 			}
 			return true;
+			// if (this.num < 2) return false;
+			// for (let i = 2; i * i <= this.num; i++) {
+			// 	if (this.num % i === 0) return false;
+			// }
+			// return true;
 		},
 		showProduct() {
 			let pro = 1;
@@ -80,7 +86,7 @@ Vue.createApp({
 		makeProblem() {
 			this.clear();
 			this.product = 1;
-			this.problem = Math.floor(Math.random() * (this.max_ans + 1))+1;
+			this.problem = Math.floor(Math.random() * (this.max_ans + 1)) + 1;
 			this.clearTile();
 
 		},
@@ -94,8 +100,8 @@ Vue.createApp({
 			// alert(this.calculated);
 			// alert(this.product);
 			//console.log("product", this.product);
-			for(let i = 0; i < this.boardSize; i++){
-				if(!this.TileIsPrime(i)){
+			for (let i = 0; i < this.boardSize; i++) {
+				if (!this.TileIsPrime(i)) {
 					alert("Wrong! Composit number is Included");
 					return false;
 
@@ -141,16 +147,19 @@ Vue.createApp({
 			return true;
 
 		},
-		divide(){
+		divide() {
 			//console.log(this.problem, this.product);
-			if(this.problem%this.product !== 0) {
+			if (this.problem % this.product !== 0) {
 				alert("Error");
 				return;
+			}
+			for (let i = 0; i < this.boardSize; i++) {
+				if (!this.TileIsPrime(this.calculated[i])) return;
 			}
 			this.problem /= this.product;
 			this.clearTile();
 			//console.log(this.product);
-			if(this.problem===1) this.checkAns();
+			if (this.problem === 1) this.checkAns();
 		}
 
 

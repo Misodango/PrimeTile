@@ -49,7 +49,11 @@
 				border-radius: 0.5rem;
 				border: 2px dashed #000;
 			}
-
+			button:disabled{
+				border: 1px solid #999999;
+				background-color: #cccccc;
+				color: #666666;
+			}
 
 		</style>
 	</head>
@@ -95,7 +99,9 @@
 				</table>
 				<button  @click="clearTile()">Reset Tile</button>
 				<!-- <button  @click="checkAns">Check Answer</button> -->
-				<button  @click="divide()">割る！</button>
+				<button v-if="isPrime" @click="divide()" hover>割る！</button>
+				<button v-else disabled>割る！</button>
+
 			</div>
 
 		</div>
