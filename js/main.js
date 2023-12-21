@@ -154,7 +154,7 @@ Vue.createApp({
 				return;
 			}
 			for (let i = 0; i < this.boardSize; i++) {
-				if (!this.TileIsPrime(this.calculated[i])) return;
+				if (this.TileIsPrime(this.calculated[i]) === false) return;
 			}
 			this.problem /= this.product;
 			this.clearTile();
