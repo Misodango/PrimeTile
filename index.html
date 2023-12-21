@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<title>PrimeTile</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta  charset="utf-8">
+		<style>
+			html {
+			}
+			#app{
+				text-align:center;
+			}
+			.primetile{
+				text-align:center;
+
+			}
+			.problem{
+				font-size: 100%;
+			}
+			table{
+				font-size: 50px;
+				margin-right:auto;
+				margin-left:auto;
+				border-spacing:0 5px;
+			}
+			button{
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				font-size: 62.5%;/*rem算出をしやすくするために*/
+
+				font-size: 1.3rem;
+				font-weight: 700;
+				line-height: 1.5;
+				position: relative;
+				display: inline-block;
+				padding: 1rem 4rem;
+				cursor: pointer;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				-webkit-transition: all 0.3s;
+				transition: all 0.3s;
+				text-align: center;
+				vertical-align: middle;
+				text-decoration: none;
+				letter-spacing: 0.1em;
+				color: #212529;
+				border-radius: 0.5rem;
+				border: 2px dashed #000;
+			}
+
+
+		</style>
+	</head>
+	<body>
+		<div id="app">
+
+
+			<!-- <div id="input-num"> -->
+			<!-- 	<form @submit.prevent="addFact"> -->
+			<!-- 		<input type="number" v-model="num"/> -->
+			<!-- 		<button v-if="isPrime">ADD!</button> -->
+			<!-- 		<p v-else>not prime</p> -->
+			<!-- 	</form> -->
+			<!-- </div> -->
+			<!-- <div v-if="isEmpty"> -->
+			<!-- 	<p>None</p> -->
+			<!-- </div> -->
+			<!-- <div v-else> -->
+			<!-- 	<p>Your Inputs</p> -->
+			<!-- 	<ul> -->
+			<!-- 		<li v-for="fact in facts" > -->
+			<!-- 			<span>{{ fact }}, {{ weights[fact]}}</span> -->
+			<!---->
+			<!-- 		</li> -->
+			<!-- 	</ul> -->
+			<!-- 	<p v-on="showProduct"> {{ product }}</p> -->
+			<!-- 	<button @click="clear">Clear</button> -->
+			<!-- 	<p v-if="state"></p> -->
+			<!-- 	<p v-else>Wrong...</p> -->
+			<!-- </div> -->
+
+			<div id="primetile">
+				<button @click="makeProblem">Create problem</button>
+				<p id="problem">{{ problem }}</p>
+				<table border="12" cellspacing="0" font-size>
+					<tr v-for="(row,i) in tiles" :key="i">
+						<td v-for="(col, j) in row" :key="j">
+							<span v-if="col===1 && TileIsPrime(i)" @click="clicked(i,j)">&#x2b1b;</span>
+							<span v-if="col===1 && TileIsPrime(i)!==true" @click="clicked(i,j)">&#x1f7e5;</span>
+							<span v-if="col!==1" @click="clicked(i,j)">&#x2b1c;</span>
+						</td>
+					</tr>
+				</table>
+				<button  @click="clearTile()">Reset Tile</button>
+				<!-- <button  @click="checkAns">Check Answer</button> -->
+				<button  @click="divide()">割る！</button>
+			</div>
+
+		</div>
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+
+</html>
