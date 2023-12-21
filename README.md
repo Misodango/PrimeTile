@@ -1,4 +1,6 @@
 # PrimeTile(Web簡易版) 概要
+[ここから]<https://misodango.github.io/PrimeTile/>
+
 このゲームは，タイルを駆使して数字を作り，素因数分解を楽しむゲームです．
 
 部活でPygameを用いて作ったもののWeb版になっています．
